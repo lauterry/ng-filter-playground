@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html ng-app="angularMovieApp">
 <head>
+    <meta charset="UTF-8"/>
     <title>AngularMovie</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
-<!-- barre de navigation -->
-<header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <section class="container">
-            <a class="brand" href="#/welcome">AngularMovie</a>
-            <ul class="nav">
-                <li><a href="#/movies">Mes films</a></li>
-            </ul>
+<section class="container" ng-controller="moviesController">
+
+    <header class="page-header">
+        <h1>Ma vidéothèque <small>{{movies.length}} films</small></h1>
+    </header>
+
+    <section class="well form-inline">
+        <input class="span5" type="text" ng-model="search" placeholder="Rechercher">
+        <section class="pull-right">
+            <button class="btn btn-info">Trier par année</button>
+            <button class="btn btn-info">Trier par titre</button>
         </section>
-    </div>
-</header>
+    </section>
 
-<!-- partie principale -->
-<section class="container" ng-view></section>
+    <ul class="thumbnails">
+        <li class="span12" ng-repeat="movie in movies" >
+            <img class="span2" ng-src="{{movie.poster}}">
+            <div class="caption">
+                <h3>{{movie.title}}</h3>
+                <p><b>Année de sortie : </b>{{movie.releaseYear}}</p>
+                <p><b>Réalisateur : </b>{{movie.directors}}</p>
+                <p><b>Acteurs : </b>{{movie.actors}}</p>
+                <p><b>Synopsis : </b>{{movie.synopsis}}</p>
+                <p><b>Note : </b>{{movie.rate}}</p>
+                <p><b>Vu le : </b>{{movie.lastViewDate}}</p>
+                <p><b>Prix : </b>{{movie.price}}</p>
+            </div>
+        </li>
+    </ul>
 
-<script type="text/javascript" src="js/lib/jquery/jquery.js"></script>
+</section>
+
 <script type="text/javascript" src="js/lib/angular/angular.min.js"></script>
 <script type="text/javascript" src="js/lib/angular/angular-locale_fr-fr.js"></script>
-<script type="text/javascript" src="js/lib/bootstrap/bootstrap.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/services.js"></script>
 <script type="text/javascript" src="js/controllers.js"></script>
