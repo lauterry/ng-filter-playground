@@ -1,7 +1,7 @@
-AngularMovie
+ngFilterPlayground
 ============
 
-Gestionnaire de film développé avec AngularJS - Support de présentation
+Une application de démo pour illustrer les filtres AngularJS
 
 ## Installation
 * ouvrir le terminal
