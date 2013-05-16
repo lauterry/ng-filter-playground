@@ -10,9 +10,11 @@
 
 <section class="container" ng-controller="moviesController">
 
+
     <header class="page-header">
         <h1>Ma vidéothèque <small>{{movies.length}} films</small></h1>
     </header>
+
 
     <section class="well form-inline">
         <input class="span5" type="text" placeholder="Rechercher">
@@ -21,6 +23,7 @@
             <button class="btn btn-info">Trier par titre</button>
         </section>
     </section>
+
 
     <ul class="thumbnails">
         <li class="span12" ng-repeat="movie in movies" >
